@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI智能对联生成器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>AI智能对联生成器</h1>
+      <p>输入上联或下联，结合主题与姓名，让系统为您生成应对的联文与横批。</p>
+    </header>
+
+    <form id="couplet-form" class="form-card">
+      <div class="field">
+        <label for="userName">姓名 (可选)</label>
+        <input id="userName" type="text" placeholder="例如：张三" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="theme">主题定制</label>
+        <select id="theme">
+          <option value="general">喜庆吉祥</option>
+          <option value="career">事业腾飞</option>
+          <option value="family">阖家幸福</option>
+          <option value="study">书房雅趣</option>
+        </select>
+        <p id="themeHint" class="hint"></p>
+      </div>
+
+      <div class="field">
+        <span class="label">输入类型</span>
+        <div class="radio-group">
+          <label><input type="radio" name="lineType" value="upper" checked> 我输入上联</label>
+          <label><input type="radio" name="lineType" value="lower"> 我输入下联</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="lineInput">联文</label>
+        <textarea id="lineInput" rows="3" placeholder="请输入您构思的上联或下联，例如：春风得意入华堂"></textarea>
+      </div>
+
+      <p id="formMessage" class="message" role="alert" aria-live="assertive"></p>
+
+      <button type="submit" class="primary-button">生成对联</button>
+    </form>
+
+    <section id="result" class="result hidden" aria-live="polite">
+      <h2>AI生成的对联</h2>
+      <div class="couplet-display">
+        <div class="vertical upper">
+          <span class="label">上联</span>
+          <span id="upperLine" class="text"></span>
+        </div>
+        <div class="horizontal">
+          <span id="horizontalText"></span>
+        </div>
+        <div class="vertical lower">
+          <span class="label">下联</span>
+          <span id="lowerLine" class="text"></span>
+        </div>
+      </div>
+      <div class="actions hidden" id="downloadActions">
+        <button type="button" id="downloadButton" class="secondary-button" disabled>
+          下载对联
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>小贴士：主题快捷词可帮助您快速构思，如“事业”寓意开创新局，“家庭”代表阖家团圆，“书房”强调翰墨书香。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
